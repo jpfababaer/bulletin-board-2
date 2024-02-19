@@ -27,6 +27,9 @@ class BoardsController < ApplicationController
     the_board = Board.new
     the_board.name = params.fetch("query_name")
 
+    #14 We need to make sure that when the Create button is clicked, we are not only storing the values the user inputs but also the user_id. We access this through the current_user variable that Devise grants us. This value travels with the user wherever they go. SEARCH lib/tasks/dev.rake
+    the_board.user_id = current_user.id
+
     if the_board.valid?
       the_board.save
       redirect_to("/boards/#{the_board.id}", { :notice => "Board created successfully." })
