@@ -5,6 +5,7 @@
 #3 When we do rails generate devise:install, make sure to follow the initialzer steps it provides. Step 1 -> SEARCH config/environments/development.rb
 
 Rails.application.routes.draw do
+#10 This line of code generates the RCAVs involved with the user login, sign up, etc. Use /rails/info/routes to see all available routes. SEARCH app/views/layouts/application.html.erb 
   devise_for :users
 
 #5 Instead of the ROOT URL below:
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
 #8 RESETTING FLOW! Generate the Users table in the terminal using the command: rails generate devise user. This NEW devise generator automatically generates columns: email and password. Additional columns we might want would need to be specified in the rails command.
 
-#9 Use rake db:migrate to create the User database table. RESTART WEB SERVER first after installing the Devise gem so that the initializer is loaded = Stop Webpage and bin/dev again.
+#9 Use rake db:migrate to create the User database table. RESTART WEB SERVER first after installing the Devise gem so that the initializer is loaded = Stop Webpage and bin/dev again. Look up!
 
   # Routes for the Post resource:
 

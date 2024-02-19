@@ -12,8 +12,21 @@
 
   <body>
     <nav>
+
       <a href="/">Bulletin Board</a>
+    <!--11 Customizing User experience. If logged in, we don't need to show "sign up" and "sign in" and vice-versa. Utilizing Devise which handles Cookies for us so we just access the variable "current_user" they provide.-->
+      <% if current_user != nil %>
+        <a href="/users/edit">Edit profile</a>
+        <a href="/users/sign_out">Sign out</a>
+      <% else %>
+        <a href="/users/sign_up">Sign up</a>
+        <a href="/users/sign_in">Sign in</a>
+      <% end %>
+      
     </nav>
+    <!--12 When logged in, we are able to create new boards. In order to keep track of who is the user that created it, we have to create a new column in Boards database -> use the command: rails generate migration AddUserIdToBoards user_id:integer. This creates a new .rb file in db/migrate/20240219213149_add_user_id_to_boards.rb. Check to file to make sure it added the right column to the proper database.-->
+
+    <!--13 Make sure to use the command: rake db:migrate so that the column user_id is added to the Boards database. Now we just have to do the same for the Post database.-->
 
     <hr>
 
