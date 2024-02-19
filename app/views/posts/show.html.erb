@@ -66,9 +66,18 @@
 
 <hr>
 
+<!--21 Create more condtionals to prevent just ANYONE from updating a post.-->
+
+<!--22 Conditional 1: The user is logged in AND is the POSTER of the post = CAN update the post.-->
+
+<!--23 Conditional 2: The user is logged in but is viewing a post that is NOT theirs = can NOT update post-->
+
+<!--24 Conditional 3: The user is NOT logged in at all = can only VIEW posts or boards.-->
 
 <div>
-  <div>
+
+<% if current_user != nil && current_user.id == @the_post.user_id %>
+<div>
     <h2>
       Edit post
     </h2>
@@ -111,6 +120,12 @@
       </button>
     </form>
   </div>
+<% elsif current_user != nil && current_user.id != @the_post.user_id %>
+<p>You are not the author of this post. <a href="/users/sign_out">Sign out</a> and log in to the proper account.</p>
+<% else %>
+<p>You must be <a href="/users/sign_in">signed in</a> to update this post</p>
+<% end %>
+  
 </div>
 
 <hr>

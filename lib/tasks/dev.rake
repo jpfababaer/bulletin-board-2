@@ -2,7 +2,7 @@ desc "Fill the database tables with some sample data"
 task({ :sample_data => :environment }) do
   puts "Sample data task running"
   if Rails.env.development?
-  #18 More clean up. Destroy all the User Instances if the Rails environment is NOT in development. 
+  #18 More clean up. Destroy all the User Instances if the Rails environment is NOT in development. LOOK DOWN.
     User.destroy_all
     Board.destroy_all
     Post.destroy_all
@@ -34,7 +34,7 @@ task({ :sample_data => :environment }) do
 
     rand(10..50).times do
       post = Post.new
-  #17 Same reasoning as Step #16. User.all.sample gives me one RANDOM User instance to play around with in the line below. 
+  #17 Same reasoning as Step #16. User.all.sample gives me one RANDOM User instance to play around with in the line below. LOOK UP.
       post.user_id = User.all.sample.id
       post.board_id = board.id
       post.title = rand < 0.5 ? Faker::Commerce.product_name : Faker::Job.title
@@ -45,7 +45,8 @@ task({ :sample_data => :environment }) do
     end
   end
 
-  puts "There are now #{User.count} rows in the boards table."
+  #19 Update the line to inform what is inside of the Databases. SEARCH app/views/boards/index
+  puts "There are now #{User.count} rows in the User table."
   puts "There are now #{Board.count} rows in the boards table."
   puts "There are now #{Post.count} rows in the posts table."
 end
