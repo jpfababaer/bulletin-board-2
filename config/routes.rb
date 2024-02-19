@@ -1,5 +1,21 @@
+#1 Utilizing the Devise gem. This automates the process of getting all of the RCAVs for sign-in, sign-out, edit profile, delete profile, and delete user account. 
+
+#2 In this project, Devise is already installed BUT if not, we can go to the terminal and use the command: rails generate devise:install.
+
+#3 When we do rails generate devise:install, make sure to follow the initialzer steps it provides. Step 1 -> SEARCH config/environments/development.rb
+
 Rails.application.routes.draw do
-  get("/", { :controller => "boards", :action => "index" })
+  devise_for :users
+
+#5 Instead of the ROOT URL below:
+# get("/", { :controller => "boards", :action => "index" })
+
+# We recreate this root URL by copy/pasting step 2 of the initialization in the terminal. Make sure the value inside of the String matches the .get() route we replaced and its :action. SEARCH app/views/layouts/application.html
+  root to: "boards#index" 
+
+#8 RESETTING FLOW! Generate the Users table in the terminal using the command: rails generate devise user. This NEW devise generator automatically generates columns: email and password. Additional columns we might want would need to be specified in the rails command.
+
+#9 Use rake db:migrate to create the User database table. RESTART WEB SERVER first after installing the Devise gem so that the initializer is loaded = Stop Webpage and bin/dev again.
 
   # Routes for the Post resource:
 
