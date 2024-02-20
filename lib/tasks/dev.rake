@@ -28,7 +28,7 @@ task({ :sample_data => :environment }) do
   5.times do
     board = Board.new
     board.name = Faker::Address.community
-  #16 This randomly chooses one of the users and adds a foreign key value for the column user_id in the Boards database.
+  #16 This randomly chooses one of the users and adds a foreign key value for the Column user_id in the Boards database.
     board.user_id = User.all.sample.id
     board.save
 

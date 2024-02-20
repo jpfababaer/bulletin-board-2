@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 #10 This line of code generates the RCAVs involved with the user login, sign up, etc. Use /rails/info/routes to see all available routes. SEARCH app/views/layouts/application.html.erb 
   devise_for :users
 
-#5 Instead of the ROOT URL below:
+#5 Instead of the ROOT URL below...
 # get("/", { :controller => "boards", :action => "index" })
 
-# We recreate this root URL by copy/pasting step 2 of the initialization in the terminal. Make sure the value inside of the String matches the .get() route we replaced and its :action. SEARCH app/views/layouts/application.html
+# ...we recreate this root URL by copy/pasting step 2 of the initialization in the terminal. Make sure the value inside of the String matches the .get() route we for the HOMEPAGE. SEARCH app/views/layouts/application.html
   root to: "boards#index" 
 
 #8 RESETTING FLOW! Generate the Users table in the terminal using the command: rails generate devise user. This NEW devise generator automatically generates columns: email and password. Additional columns we might want would need to be specified in the rails command.

@@ -266,6 +266,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
+  
   #7 Change the value from :delete to :get because we do NOT have the ability to delete or patch requests. RESET BACK to routes.rb
   config.sign_out_via = :get
 
