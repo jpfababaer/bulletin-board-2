@@ -14,9 +14,17 @@ Rails.application.routes.draw do
 # ...we recreate this root URL by copy/pasting step 2 of the initialization in the terminal. Make sure the value inside of the String matches the .get() route we for the HOMEPAGE. SEARCH app/views/layouts/application.html
   root to: "boards#index" 
 
-#8 RESETTING FLOW! Generate the Users table in the terminal using the command: rails generate devise user. This NEW devise generator automatically generates columns: email and password. Additional columns we might want would need to be specified in the rails command.
+#8 RESETTING FLOW! Generate the Users table in the terminal using the command: 
 
-#9 Use rake db:migrate to create the User database table. RESTART WEB SERVER first after installing the Devise gem so that the initializer is loaded = Stop Webpage and bin/dev again. Look up!
+# rails generate devise user 
+
+#This NEW devise generator automatically generates columns: email and password. Additional columns we might want would need to be specified in the rails command.
+
+#9 Use command:
+
+# rake db:migrate 
+
+#to create the User database table. RESTART WEB SERVER first after installing the Devise gem so that the initializer is loaded = Stop Webpage and bin/dev again. Look up!
 
   # Routes for the Post resource:
 
